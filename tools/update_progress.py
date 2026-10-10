@@ -93,7 +93,7 @@ def card(title, label, done, total, note, color='#dfbe79', digits=1):
 
 def area_svg(areas):
     height = 78 + 48 * len(areas)
-    parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Research function naming by subsystem">', f'<rect width="900" height="{height}" rx="12" fill="#111d22"/>', '<g font-family="Arial, sans-serif" fill="#edf2ee"><text x="28" y="30" font-size="19">Research areas · functions named</text><text x="28" y="52" font-size="13" fill="#a8bdbb">Naming coverage is not source reconstruction or proof of understood behavior.</text>']
+    parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Research function naming by subsystem">', f'<rect width="900" height="{height}" rx="12" fill="#111d22"/>', '<g font-family="Arial, sans-serif" fill="#edf2ee"><text x="28" y="30" font-size="19">Research areas · functions named</text><text x="28" y="52" font-size="13" fill="#a8bdbb">Function identification across the original game engine, grouped by subsystem.</text>']
     for i, row in enumerate(areas):
         y = 83 + i * 48
         pct = ratio(row['named'], row['total'])
@@ -114,16 +114,17 @@ def render(data, root=ROOT):
     native, norrath = data['milestones']['native'], data['milestones']['norrath']
     rta, research = data['rta'], data['research']
     cards = {
-        'rta': card('Return to Arms · PS2 source rebuild', 'Verified matching code bytes', rta['bytes_matched'], rta['text_bytes_total'], f'{rta["functions_matched"]:,} / {rta["functions_total"]:,} complete functions. Recorded byte matches; no linked-game claim.', digits=4),
-        'research': card('Return to Arms · research coverage', 'Functions with names', research['named'], research['total'], 'A name is a research lead, not proof that the function is understood or rebuilt.', '#79c6b6'),
-        'native': card('Native Godot client · both games', 'Delivered roadmap milestones', native['done'], native['total'], 'Milestones differ in size. This is not a percentage of a playable game.'),
-        'norrath': card('Champions of Norrath · baseline setup', 'Verified setup milestones', norrath['done'], norrath['total'], 'Independent baseline required. Source reconstruction percentage is not established.', '#a6b9d3'),
+        'rta': card('Return to Arms · PS2 source rebuild', 'Verified matching code bytes', rta['bytes_matched'], rta['text_bytes_total'], f'{rta["functions_matched"]:,} / {rta["functions_total"]:,} complete functions rebuilt and verified against the original PS2 code.', digits=4),
+        'research': card('Return to Arms · research coverage', 'Functions with names', research['named'], research['total'], 'Tracks function identification across the original game engine.', '#79c6b6'),
+        'native': card('Native Godot client · both games', 'Delivered roadmap milestones', native['done'], native['total'], 'Building native Mac and Windows play for both Champions games. Milestones vary in size.'),
+        'norrath': card('Champions of Norrath · baseline setup', 'Verified setup milestones', norrath['done'], norrath['total'], 'Establishing the game-specific foundation for Norrath source reconstruction.', '#a6b9d3'),
     }
     for name, svg in cards.items():
         (folder / f'{name}.svg').write_text(svg, encoding='utf-8')
     (folder / 'research-areas.svg').write_text(area_svg(data['areas']), encoding='utf-8')
     snapshot.write_text(json.dumps({'updated': now, 'generator_sha256': generator_hash, 'data': data}, indent=2) + '\n', encoding='utf-8')
     base = f'https://raw.githubusercontent.com/{ORG}/.github/main/profile/progress'
+    image_version = sha256((generator_hash + json.dumps(data, sort_keys=True)).encode()).hexdigest()[:16]
     links = {'rta': f'https://github.com/{ORG}/{REPOS[1]}/blob/{data["revisions"][REPOS[1]]}/targets/SLUS-20973/verification.json', 'research': f'https://github.com/{ORG}/{REPOS[0]}/blob/{data["revisions"][REPOS[0]]}/docs/STATUS.md', 'native': native['url'], 'norrath': norrath['url']}
     block = f'''{START}
 ### Project progress
@@ -135,15 +136,15 @@ Last published data update: **{now}**. [How these bars work](https://github.com/
 
 '''
     for name in ('rta', 'norrath', 'native', 'research'):
-        block += f'[![{name} progress]({base}/{name}.svg)]({links[name]})\n\n'
+        block += f'[![{name} progress]({base}/{name}.svg?v={image_version})]({links[name]})\n\n'
     block += f'''<details>
 <summary>Research progress by subsystem</summary>
 
-![Research areas]({base}/research-areas.svg)
+![Research areas]({base}/research-areas.svg?v={image_version})
 
 </details>
 
-**These are separate measures, not one overall game-completion percentage. Neither game is playable natively yet.**
+**Our goal: both Champions games running natively on Mac and Windows. Each bar tracks its own development measure.**
 {END}'''
     readme = root / 'profile/README.md'
     text = readme.read_text()

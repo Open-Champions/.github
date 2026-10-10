@@ -13,12 +13,12 @@ update; the workflow badge links to the latest refresh runs.
 |---|---|---|
 | RTA source rebuild | Source repo `tools/rebuild.py progress --json` | Matching bytes divided by original `.text` bytes; complete function count shown separately. Its own validator rejects stale source, flags, ledger, index or verifier fingerprints. This job does not compile against a private original. |
 | RTA research | Research repo `tools/coverage.py` | Named functions divided by indexed functions, overall and by subsystem. It does not count code-size percentage, understanding, or decompilation as source reconstruction. |
-| Native Godot client | [Native milestones](https://github.com/Open-Champions/open-champions-godot/issues/2) | Checked, evidenced milestones divided by planned milestones. Milestones differ in size; this is not game-completion percentage. |
+| Native Godot client | [Native milestones](https://github.com/Open-Champions/open-champions-godot/issues/2) | Checked, evidenced milestones divided by planned milestones. Milestones vary in size and track the roadmap toward native Mac and Windows play for both games. |
 | Norrath baseline setup | [Independent baseline checklist](https://github.com/Open-Champions/champions-of-norrath/issues/1) | Verified setup milestones. Its source-reconstruction percentage remains unestablished until its own baseline and verifier exist. |
 
-There is no combined percentage. Neither a green research bar nor a completed
-archive browser proves a playable game. RTA's extremely small matching fraction
-is drawn at its true width, without a misleading minimum fill.
+Each bar uses the specific measure listed above. The project goal is native Mac
+and Windows play for both Champions games. RTA matching bytes are drawn at their
+true proportion of the original code section.
 
 ## Keeping it current
 
