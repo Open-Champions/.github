@@ -1,17 +1,17 @@
 {
-  "updated": "2026-10-10 08:59 CDT",
-  "generator_sha256": "b89648983ea204ac569c01e4f5bad140c059ca56f8761e9e7cbfb599a6630faf",
+  "updated": "2026-10-10 11:04 CDT",
+  "generator_sha256": "dec30ab73a51af64eaf9a65a120f2399841d22bd1fb7ef8e995dd374bfac3f20",
   "data": {
     "revisions": {
-      "champions-return-to-arms-re": "45668f7b7720dd722b0f8e8894af30953bc24a25",
+      "champions-return-to-arms-re": "84bf6c5eb9ec5b19c4bfc0fbd41b8431d22c4946",
       "champions-return-to-arms": "adb1e7c3a9b1c41e86aed3f9f73cfef95c088c36",
       "champions-of-norrath": "ee9fcd3adc6f083a1da985f578c3234f9ad49c40",
-      "open-champions-godot": "acc88ed0c85a7bcf826d53032f834589fe5d6ec6"
+      "open-champions-godot": "c2d915c7ee47e81bd3e7c9be3429bb29822510b2"
     },
     "research": {
       "area": "all",
       "total": 7732,
-      "named": 5233
+      "named": 5239
     },
     "areas": [
       {
@@ -42,17 +42,17 @@
       {
         "area": "engine",
         "total": 546,
-        "named": 353
+        "named": 356
       },
       {
         "area": "player",
         "total": 122,
-        "named": 110
+        "named": 111
       },
       {
         "area": "ui",
         "total": 222,
-        "named": 189
+        "named": 191
       },
       {
         "area": "gameplay",
@@ -99,18 +99,30 @@
       "byte_percent": 0.002106460514397658,
       "report_supplied": true
     },
+    "norrath_source": {
+      "available": true,
+      "label": "Draft PR #2 / unmerged",
+      "revision": "87c46ca0ecea61a73df19aa46f7ebc0501973784",
+      "url": "https://github.com/Open-Champions/champions-of-norrath/pull/2",
+      "functions_matched": 11,
+      "functions_total": 5390,
+      "bytes_matched": 160,
+      "text_bytes_total": 2209032,
+      "data_objects_matched": 4,
+      "data_bytes_matched": 13
+    },
     "milestones": {
       "native": {
         "done": 2,
         "total": 7,
         "url": "https://github.com/Open-Champions/open-champions-godot/issues/2",
-        "updated_at": "2026-10-10T07:43:22Z"
+        "updated_at": "2026-10-10T16:02:16Z"
       },
       "norrath": {
-        "done": 0,
+        "done": 4,
         "total": 5,
         "url": "https://github.com/Open-Champions/champions-of-norrath/issues/1",
-        "updated_at": "2026-10-10T07:57:25Z"
+        "updated_at": "2026-10-10T16:01:49Z"
       }
     }
   }
