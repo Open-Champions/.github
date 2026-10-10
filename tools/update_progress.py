@@ -5,6 +5,7 @@ from datetime import datetime
 from html import escape
 from hashlib import sha256
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -17,8 +18,12 @@ REPOS = ['champions-return-to-arms-re', 'champions-return-to-arms', 'champions-o
 START, END = '<!-- dashboard:start -->', '<!-- dashboard:end -->'
 
 
-def run(args, cwd=None):
-    return subprocess.run(args, cwd=cwd, check=True, capture_output=True, text=True, timeout=90).stdout
+def run(args, cwd=None, public_code=False):
+    # Published first-party validators need no GitHub token or other job secrets.
+    env = ({key: value for key, value in os.environ.items()
+            if key in {'PATH', 'HOME', 'SYSTEMROOT', 'TMPDIR', 'TMP', 'TEMP', 'LANG'}}
+           if public_code else None)
+    return subprocess.run(args, cwd=cwd, env=env, check=True, capture_output=True, text=True, timeout=90).stdout
 
 
 def ratio(done, total):
@@ -58,12 +63,87 @@ def coverage(table):
     return totals[0], areas
 
 
+NORRATH = f'{ORG}/{REPOS[2]}'
+NORRATH_TARGET = Path('targets/SLUS-20565')
+
+
+def clean_snapshot(folder, revision):
+    if (run(['git', 'rev-parse', 'HEAD'], folder).strip() != revision
+            or run(['git', 'status', '--porcelain', '--untracked-files=all'], folder).strip()):
+        raise ValueError('Norrath snapshot changed or contains unpublished files')
+
+
+def norrath_snapshot(sources):
+    # This single, explicitly selected first-party PR is the only draft source.
+    pr = json.loads(run(['gh', 'api', f'repos/{NORRATH}/pulls/2']))
+    if any(pr[side]['repo']['full_name'] != NORRATH or pr[side]['repo'].get('fork', False)
+           for side in ('head', 'base')):
+        raise ValueError('Norrath progress refuses fork or unrelated PR code')
+    url = f'https://github.com/{NORRATH}/pull/2'
+    if pr['merged']:
+        folder = sources / REPOS[2]
+        revision = run(['git', 'rev-parse', 'HEAD'], folder).strip()
+        label = 'Main branch'
+    elif pr['state'] == 'closed':
+        return None, {'available': False, 'label': 'PR #2 closed without merging', 'url': url}
+    elif pr['state'] == 'open':
+        revision = pr['head']['sha']
+        if not re.fullmatch(r'[0-9a-f]{40}', revision):
+            raise ValueError('invalid Norrath PR revision')
+        folder = sources / f'norrath-pr-2-{revision}'
+        label = 'Draft PR #2 / unmerged' if pr['draft'] else 'PR #2 / unmerged'
+        if not folder.exists():
+            folder.mkdir(parents=True)
+            run(['git', 'init', '--quiet', str(folder)])
+            run(['git', 'fetch', '--quiet', '--depth=1', f'https://github.com/{NORRATH}.git', revision], folder)
+            run(['git', 'checkout', '--quiet', '--detach', 'FETCH_HEAD'], folder)
+    else:
+        raise ValueError('unknown Norrath PR state')
+    clean_snapshot(folder, revision)
+    return folder, {'available': True, 'label': label, 'revision': revision,
+                    'url': url if not pr['merged'] else f'https://github.com/{NORRATH}/tree/{revision}'}
+
+
+def norrath_stats(sources):
+    folder, result = norrath_snapshot(sources)
+    if folder is None:
+        return result
+    # Run the unchanged snapshot's own receipt validator before reading any counts.
+    run([sys.executable, '-I', 'tools/rebuild.py', 'check', '--report',
+         str(NORRATH_TARGET / 'verification.json'), '--require-matches'], folder, public_code=True)
+    target = folder / NORRATH_TARGET
+    ledger = json.loads((target / 'rebuild.json').read_text())
+    baseline = json.loads((target / 'baseline.json').read_text())
+    inventory = json.loads((target / 'symbol-summary.json').read_text())
+    sections = [section for section in baseline['sections'] if section['name'] == '.text']
+    symbols = [section for section in inventory['summary']['executable_sections'] if section['name'] == '.text']
+    if len(sections) != 1 or len(symbols) != 1:
+        raise ValueError('Norrath main .text inventory missing or ambiguous')
+    section, symbols = sections[0], symbols[0]
+    identity = ledger['target']['baseline_sha256']
+    if (baseline['executable']['sha256'] != identity or inventory['baseline_sha256'] != identity
+            or ledger['target']['text'] != {'address': f'0x{section["address"]:08x}', 'size': section['size']}
+            or symbols['section_bytes'] != section['size'] or symbols['section_index'] != section['index']):
+        raise ValueError('Norrath baseline, ledger and symbol inventory disagree')
+    start, end = section['address'], section['address'] + section['size']
+    functions = [item for item in ledger['functions']
+                 if start <= int(item['address'], 16) < int(item['address'], 16) + item['size'] <= end]
+    owners = ledger.get('data_objects', [])
+    result.update(functions_matched=len(functions), functions_total=symbols['function_symbols'],
+                  bytes_matched=sum(item['size'] for item in functions), text_bytes_total=section['size'],
+                  data_objects_matched=len(owners), data_bytes_matched=sum(item['size'] for item in owners))
+    ratio(result['bytes_matched'], result['text_bytes_total'])
+    ratio(result['functions_matched'], result['functions_total'])
+    clean_snapshot(folder, result['revision'])
+    return result
+
+
 def source_stats(sources):
     revisions = {repo: run(['git', 'rev-parse', 'HEAD'], sources / repo).strip() for repo in REPOS}
-    research, areas = coverage(run([sys.executable, '-I', 'tools/coverage.py'], sources / REPOS[0]))
+    research, areas = coverage(run([sys.executable, '-I', 'tools/coverage.py'], sources / REPOS[0], public_code=True))
     # The source project's own verifier checks ledger, index, source and verifier
     # fingerprints. Never sum an unvalidated saved receipt or expose private bytes.
-    rta = json.loads(run([sys.executable, '-I', 'tools/rebuild.py', 'progress', '--json'], sources / REPOS[1]))
+    rta = json.loads(run([sys.executable, '-I', 'tools/rebuild.py', 'progress', '--json'], sources / REPOS[1], public_code=True))
     if rta.get('report_supplied') is not True:
         raise ValueError('RTA progress lacks a validated public verification receipt')
     ratio(rta['bytes_matched'], rta['text_bytes_total'])
@@ -72,7 +152,7 @@ def source_stats(sources):
         issue = json.loads(run(['gh', 'api', f'repos/{ORG}/{repo}/issues/{number}']))
         done, total = checklist(issue['body'])
         issues[key] = {'done': done, 'total': total, 'url': issue['html_url'], 'updated_at': issue['updated_at']}
-    return {'revisions': revisions, 'research': research, 'areas': areas, 'rta': rta, 'milestones': issues}
+    return {'revisions': revisions, 'research': research, 'areas': areas, 'rta': rta, 'norrath_source': norrath_stats(sources), 'milestones': issues}
 
 
 def card(title, label, done, total, note, color='#dfbe79', digits=1):
@@ -119,6 +199,19 @@ def render(data, root=ROOT):
         'native': card('Godot client · Mac/macOS & Windows PC', 'Delivered roadmap milestones', native['done'], native['total'], 'Both Champions games. Target: native play without a PS2 emulator. Milestones vary in size.'),
         'norrath': card('Champions of Norrath · baseline setup', 'Verified setup milestones', norrath['done'], norrath['total'], 'Establishing the game-specific foundation for Norrath source reconstruction.', '#a6b9d3'),
     }
+    source = data['norrath_source']
+    if source['available']:
+        cards['norrath-source'] = card('Champions of Norrath · PS2 source rebuild',
+            f'{source["label"]} · matching main .text bytes', source['bytes_matched'], source['text_bytes_total'],
+            f'{source["functions_matched"]:,} / {source["functions_total"]:,} main .text functions; '
+            f'{source["data_objects_matched"]} data owners / {source["data_bytes_matched"]} bytes separately. No whole-game or runtime proof.',
+            '#a6b9d3', digits=4)
+    else:
+        cards['norrath-source'] = ('<svg xmlns="http://www.w3.org/2000/svg" width="900" height="124">'
+            '<rect width="900" height="124" rx="12" fill="#111d22"/>'
+            '<g font-family="Arial, sans-serif" fill="#edf2ee">'
+            '<text x="28" y="35" font-size="19">Champions of Norrath · source progress unavailable</text>'
+            f'<text x="28" y="75" font-size="15">{escape(source["label"])}; previous draft counts withdrawn.</text></g></svg>\n')
     cards['research-areas'] = area_svg(data['areas'])
     filenames = {}
     for name, svg in cards.items():
@@ -131,16 +224,17 @@ def render(data, root=ROOT):
     snapshot.write_text(json.dumps({'updated': now, 'generator_sha256': generator_hash, 'data': data}, indent=2) + '\n', encoding='utf-8')
     base = f'https://raw.githubusercontent.com/{ORG}/.github/main/profile/progress'
     links = {'rta': f'https://github.com/{ORG}/{REPOS[1]}/blob/{data["revisions"][REPOS[1]]}/targets/SLUS-20973/verification.json', 'research': f'https://github.com/{ORG}/{REPOS[0]}/blob/{data["revisions"][REPOS[0]]}/docs/STATUS.md', 'native': native['url'], 'norrath': norrath['url']}
+    links['norrath-source'] = source['url']
     block = f'''{START}
 ### Project progress
 
 [![Progress refresh](https://github.com/{ORG}/.github/actions/workflows/progress.yml/badge.svg)](https://github.com/{ORG}/.github/actions/workflows/progress.yml)
 
-Automatically checked every 15 minutes; GitHub scheduling and image caching can delay display.
+Scheduled to refresh every 15 minutes; GitHub can delay runs and image updates.
 Last published data update: **{now}**. [How these bars work](https://github.com/{ORG}/.github/blob/main/PROGRESS.md).
 
 '''
-    for name in ('rta', 'norrath', 'native', 'research'):
+    for name in ('rta', 'norrath-source', 'norrath', 'native', 'research'):
         block += f'[![{name} progress]({base}/{filenames[name]})]({links[name]})\n\n'
     block += f'''<details>
 <summary>Research progress by subsystem</summary>
@@ -157,7 +251,7 @@ Last published data update: **{now}**. [How these bars work](https://github.com/
         raise ValueError('profile must contain one dashboard block; refusing to replace unrelated text')
     text = text.split(START)[0] + block + text.split(END)[1]
     readme.write_text(text, encoding='utf-8')
-    print('Updated four project bars, research-area bars, source snapshot and profile.')
+    print('Updated five project bars, research-area bars, source snapshot and profile.')
 
 
 def main():
