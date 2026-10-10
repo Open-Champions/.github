@@ -15,8 +15,8 @@ for native Mac and Windows play using each player's original game data.
 | Repository | What belongs there | Current state |
 |---|---|---|
 | [champions-of-norrath](https://github.com/Open-Champions/champions-of-norrath) | Norrath's PS2 source reconstruction | Baseline intake and research setup; no reconstructed functions yet |
-| [champions-return-to-arms](https://github.com/Open-Champions/champions-return-to-arms) | Return to Arms' PS2 source reconstruction | Exact-function verifier, recorded progress and the first verified C++ leaf |
-| [open-champions-godot](https://github.com/Open-Champions/open-champions-godot) | Shared native client for both games | Tested C++ archive-inspection foundation; Godot integration and gameplay ahead |
+| [champions-return-to-arms](https://github.com/Open-Champions/champions-return-to-arms) | Return to Arms' PS2 source reconstruction | Exact-function verifier and 3 verified complete C++ functions (24 matching bytes) |
+| [open-champions-godot](https://github.com/Open-Champions/open-champions-godot) | Shared native client for both games | Native Godot archive browser and C++ inspector; asset decoding and gameplay ahead |
 | [champions-return-to-arms-re](https://github.com/Open-Champions/champions-return-to-arms-re) | Existing research, symbols, file formats and online-bug evidence | Active subsystem and network research |
 
 Each piece has one active home. The source repositories preserve the original PS2 targets;
