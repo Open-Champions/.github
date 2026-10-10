@@ -1,41 +1,49 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Open-Champions/.github/main/profile/assets/champions-return-to-arms-logo.png" alt="Champions: Return to Arms" width="512">
+  <img src="https://raw.githubusercontent.com/Open-Champions/.github/main/profile/assets/champions-of-norrath-logo.png" alt="Champions of Norrath" width="300">
+  <img src="https://raw.githubusercontent.com/Open-Champions/.github/main/profile/assets/champions-return-to-arms-logo.png" alt="Champions: Return to Arms" width="300">
 </p>
 
 <h1 align="center">Open Champions</h1>
-<p align="center"><strong>Understand the game. Restore dependable online play. Build in the open.</strong></p>
+<p align="center"><strong>Preserve both games. Understand their engines. Build native play.</strong></p>
 
-We are a community preservation and reverse-engineering project for **Champions: Return to Arms**, the Snowblind Studios action RPG for PlayStation 2.
+An independent community project for **Champions of Norrath** and **Champions: Return to Arms**.
+We reconstruct source from evidence, investigate online bugs, and develop a shared Godot client
+for native Mac and Windows play using each player's original game data.
 
-Our first target is the US v2.00 release, **SLUS-20973**. We are tracing the causes of online desync and lag, documenting the Snowblind engine, and building tools that let anyone with their own disc help.
+### Our repositories
+
+| Repository | What belongs there | Current state |
+|---|---|---|
+| [champions-of-norrath](https://github.com/Open-Champions/champions-of-norrath) | Norrath's PS2 source reconstruction | Baseline intake and research setup; no reconstructed functions yet |
+| [champions-return-to-arms](https://github.com/Open-Champions/champions-return-to-arms) | Return to Arms' PS2 source reconstruction | Exact-function verifier, recorded progress and the first verified C++ leaf |
+| [open-champions-godot](https://github.com/Open-Champions/open-champions-godot) | Shared native client for both games | Tested C++ archive-inspection foundation; Godot integration and gameplay ahead |
+| [champions-return-to-arms-re](https://github.com/Open-Champions/champions-return-to-arms-re) | Existing research, symbols, file formats and online-bug evidence | Active subsystem and network research |
+
+Each piece has one active home. The source repositories preserve the original PS2 targets;
+the Godot repository develops native behavior. A function match, a named symbol, and a
+working archive inspector measure different things. **Neither game is playable natively yet.**
 
 ### Start here
 
-| | |
-|---|---|
-| **Source, tools & research** | [champions-return-to-arms-re](https://github.com/Open-Champions/champions-return-to-arms-re) |
-| **Progress by area** | [Current coverage and subsystem notes](https://github.com/Open-Champions/champions-return-to-arms-re/blob/main/docs/STATUS.md) |
-| **What we know about online bugs** | [Evidence ledger](https://github.com/Open-Champions/champions-return-to-arms-re/blob/main/FINDINGS.md) |
-| **Help build it** | [Contributor guide](https://github.com/Open-Champions/champions-return-to-arms-re/blob/main/CONTRIBUTING.md) · [Open issues](https://github.com/Open-Champions/champions-return-to-arms-re/issues) |
-
-### Where we are
-
-- **7,732 indexed functions** and **403 recovered class names** provide a map of the executable.
-- **120 level scripts** can be decoded with the project tools.
-- The online lockstep model, input encoding and local-player prediction are mapped.
-- Reverse engineering is underway across the game. Function names measure mapping coverage, not a percentage of a completed port.
-- **The arena desync remains unresolved. Proposed game patches have not been validated in two running clients.**
+- [Return to Arms reconstruction progress](https://github.com/Open-Champions/champions-return-to-arms#readme)
+- [Norrath baseline checklist](https://github.com/Open-Champions/champions-of-norrath/blob/main/targets/README.md)
+- [Shared native-client roadmap](https://github.com/Open-Champions/open-champions-godot/blob/main/docs/ROADMAP.md)
+- [Research coverage](https://github.com/Open-Champions/champions-return-to-arms-re/blob/main/docs/STATUS.md)
+- [Online bug evidence](https://github.com/Open-Champions/champions-return-to-arms-re/blob/main/FINDINGS.md)
 
 ### Join the work
 
-We welcome reverse engineers, Python tool contributors, documentation writers, and players who can reproduce network bugs with two PCSX2 clients. Pick a small task, coordinate in an issue, and include evidence with your contribution.
+Choose a repository, read its contributor and agent instructions, and claim a small task.
+We welcome reverse engineers, C++ and Godot contributors, tool developers, and players who
+can reproduce network bugs. Publish evidence with each contribution. Original executables,
+disc/BIOS files, extracted game assets and raw decompiler output stay private.
 
-Tools and research are open source. Use your own game disc to generate local analysis files. Game executables, BIOS files, disc images, extracted assets, and raw decompiler output are not distributed by the research repository.
-
-### Related projects
-
-[Champions Reborn](https://github.com/HikikoMarmy/Champions-Reborn-Server) supplies the community lobby server. Open Champions focuses on understanding and improving the game client. [Open-BFME](https://github.com/Open-BFME) helped inspire the open community approach.
+[Champions Reborn](https://github.com/HikikoMarmy/Champions-Reborn-Server) supplies the existing
+community lobby-server work; we are not creating a duplicate server repository.
+[Open-BFME](https://github.com/Open-BFME) helped inspire this project's organization and measured reconstruction approach.
 
 ---
 
-Independent community project; not affiliated with or endorsed by the game's rights holders. The Champions: Return to Arms name and logo belong to their respective owners. [Artwork credits](https://github.com/Open-Champions/.github/blob/main/ARTWORK.md).
+Independent community project; not affiliated with or endorsed by the games' rights holders.
+Game names and wordmarks belong to their respective owners and are excluded from the software
+license. [Artwork credits](https://github.com/Open-Champions/.github/blob/main/ARTWORK.md).
