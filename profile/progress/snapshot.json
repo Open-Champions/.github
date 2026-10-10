@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-10 11:04 CDT",
+  "updated": "2026-10-10 11:05 CDT",
   "generator_sha256": "dec30ab73a51af64eaf9a65a120f2399841d22bd1fb7ef8e995dd374bfac3f20",
   "data": {
     "revisions": {
       "champions-return-to-arms-re": "84bf6c5eb9ec5b19c4bfc0fbd41b8431d22c4946",
       "champions-return-to-arms": "adb1e7c3a9b1c41e86aed3f9f73cfef95c088c36",
       "champions-of-norrath": "ee9fcd3adc6f083a1da985f578c3234f9ad49c40",
-      "open-champions-godot": "c2d915c7ee47e81bd3e7c9be3429bb29822510b2"
+      "open-champions-godot": "6cb86279a42c9203501aff8bef01ff5b9844ce76"
     },
     "research": {
       "area": "all",
