@@ -10,12 +10,38 @@ An independent community project for **Champions of Norrath** and **Champions: R
 We reconstruct source from evidence, investigate online bugs, and develop a shared Godot client
 for native Mac and Windows play using each player's original game data.
 
+<!-- dashboard:start -->
+### Project progress
+
+[![Progress refresh](https://github.com/Open-Champions/.github/actions/workflows/progress.yml/badge.svg)](https://github.com/Open-Champions/.github/actions/workflows/progress.yml)
+
+Automatically checked every 15 minutes; GitHub scheduling and image caching can delay display.
+Last published data update: **2026-10-10 02:42 CDT**. [How these bars work](https://github.com/Open-Champions/.github/blob/main/PROGRESS.md).
+
+[![rta progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/rta.svg)](https://github.com/Open-Champions/champions-return-to-arms/blob/23e2246c457a2e4b6f57e52cefa337caeae0f7f3/targets/SLUS-20973/verification.json)
+
+[![norrath progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/norrath.svg)](https://github.com/Open-Champions/champions-of-norrath/issues/1)
+
+[![native progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/native.svg)](https://github.com/Open-Champions/open-champions-godot/issues/2)
+
+[![research progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research.svg)](https://github.com/Open-Champions/champions-return-to-arms-re/blob/7975d807ee932d46f58c3fe78fed04a39bc5a05b/docs/STATUS.md)
+
+<details>
+<summary>Research progress by subsystem</summary>
+
+![Research areas](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-areas.svg)
+
+</details>
+
+**These are separate measures, not one overall game-completion percentage. Neither game is playable natively yet.**
+<!-- dashboard:end -->
+
 ### Our repositories
 
 | Repository | What belongs there | Current state |
 |---|---|---|
 | [champions-of-norrath](https://github.com/Open-Champions/champions-of-norrath) | Norrath's PS2 source reconstruction | Baseline intake and research setup; no reconstructed functions yet |
-| [champions-return-to-arms](https://github.com/Open-Champions/champions-return-to-arms) | Return to Arms' PS2 source reconstruction | Exact-function verifier and 3 verified complete C++ functions (24 matching bytes) |
+| [champions-return-to-arms](https://github.com/Open-Champions/champions-return-to-arms) | Return to Arms' PS2 source reconstruction | Exact-function verifier and recorded byte-matching progress |
 | [open-champions-godot](https://github.com/Open-Champions/open-champions-godot) | Shared native client for both games | Native Godot archive browser and C++ inspector; asset decoding and gameplay ahead |
 | [champions-return-to-arms-re](https://github.com/Open-Champions/champions-return-to-arms-re) | Existing research, symbols, file formats and online-bug evidence | Active subsystem and network research |
 

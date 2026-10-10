@@ -1,0 +1,117 @@
+{
+  "updated": "2026-10-10 02:42 CDT",
+  "generator_sha256": "fe3150a20e7482bf180b0869e235dd6c58a2f5e033af301974885177e2f7fd9f",
+  "data": {
+    "revisions": {
+      "champions-return-to-arms-re": "7975d807ee932d46f58c3fe78fed04a39bc5a05b",
+      "champions-return-to-arms": "23e2246c457a2e4b6f57e52cefa337caeae0f7f3",
+      "champions-of-norrath": "ee9fcd3adc6f083a1da985f578c3234f9ad49c40",
+      "open-champions-godot": "2cc00a431c16b54970301defeca5e2e7a51a7257"
+    },
+    "research": {
+      "area": "all",
+      "total": 7732,
+      "named": 4919
+    },
+    "areas": [
+      {
+        "area": "startup",
+        "total": 53,
+        "named": 53
+      },
+      {
+        "area": "creatures",
+        "total": 320,
+        "named": 295
+      },
+      {
+        "area": "netcode",
+        "total": 54,
+        "named": 54
+      },
+      {
+        "area": "script",
+        "total": 195,
+        "named": 195
+      },
+      {
+        "area": "objects",
+        "total": 219,
+        "named": 183
+      },
+      {
+        "area": "engine",
+        "total": 546,
+        "named": 268
+      },
+      {
+        "area": "player",
+        "total": 122,
+        "named": 109
+      },
+      {
+        "area": "ui",
+        "total": 222,
+        "named": 187
+      },
+      {
+        "area": "gameplay",
+        "total": 276,
+        "named": 240
+      },
+      {
+        "area": "audio-save",
+        "total": 293,
+        "named": 174
+      },
+      {
+        "area": "monsters",
+        "total": 885,
+        "named": 735
+      },
+      {
+        "area": "skills",
+        "total": 982,
+        "named": 865
+      },
+      {
+        "area": "mainloop",
+        "total": 39,
+        "named": 39
+      },
+      {
+        "area": "netlib",
+        "total": 2066,
+        "named": 385
+      },
+      {
+        "area": "runtime",
+        "total": 1460,
+        "named": 1137
+      }
+    ],
+    "rta": {
+      "scope": "recorded byte-exact C++ functions; no linked-game or runtime proof",
+      "functions_matched": 5,
+      "functions_total": 7732,
+      "bytes_matched": 40,
+      "text_bytes_total": 3038272,
+      "byte_percent": 0.001316537821498536,
+      "report_supplied": true
+    },
+    "milestones": {
+      "native": {
+        "done": 2,
+        "total": 7,
+        "url": "https://github.com/Open-Champions/open-champions-godot/issues/2",
+        "updated_at": "2026-10-10T07:39:13Z"
+      },
+      "norrath": {
+        "done": 0,
+        "total": 5,
+        "url": "https://github.com/Open-Champions/champions-of-norrath/issues/1",
+        "updated_at": "2026-10-10T07:39:14Z"
+      }
+    }
+  }
+}

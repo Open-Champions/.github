@@ -1,0 +1,47 @@
+name: Refresh project progress
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - tools/**
+      - .github/workflows/progress.yml
+      - PROGRESS.md
+permissions:
+  contents: write
+concurrency:
+  group: organization-progress
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+      - name: Test progress parsing and rendering
+        run: python3 -m unittest discover -s tools -p 'test_*.py'
+      - name: Read current published project snapshots
+        run: |
+          mkdir -p .sources
+          for repo in champions-return-to-arms-re champions-return-to-arms champions-of-norrath open-champions-godot; do
+            git clone --quiet --depth 1 "https://github.com/Open-Champions/$repo.git" ".sources/$repo"
+          done
+      - name: Validate evidence and render progress
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/update_progress.py
+      - name: Publish changed progress only
+        run: |
+          git add profile/README.md profile/progress
+          if git diff --cached --quiet; then
+            echo 'No published progress changed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Refresh verified project progress [skip ci]'
+          git push origin HEAD:main
