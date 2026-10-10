@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-10 11:05 CDT",
+  "updated": "2026-10-10 11:06 CDT",
   "generator_sha256": "dec30ab73a51af64eaf9a65a120f2399841d22bd1fb7ef8e995dd374bfac3f20",
   "data": {
     "revisions": {
-      "champions-return-to-arms-re": "84bf6c5eb9ec5b19c4bfc0fbd41b8431d22c4946",
+      "champions-return-to-arms-re": "7212ecfecbeae8dd2015f6c82897226f49a94695",
       "champions-return-to-arms": "adb1e7c3a9b1c41e86aed3f9f73cfef95c088c36",
       "champions-of-norrath": "ee9fcd3adc6f083a1da985f578c3234f9ad49c40",
       "open-champions-godot": "6cb86279a42c9203501aff8bef01ff5b9844ce76"
@@ -102,7 +102,7 @@
     "norrath_source": {
       "available": true,
       "label": "Draft PR #2 / unmerged",
-      "revision": "87c46ca0ecea61a73df19aa46f7ebc0501973784",
+      "revision": "0ce8a05aa9f5bf21e9bae57a1649a631671daae0",
       "url": "https://github.com/Open-Champions/champions-of-norrath/pull/2",
       "functions_matched": 11,
       "functions_total": 5390,
