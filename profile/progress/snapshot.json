@@ -1,17 +1,17 @@
 {
-  "updated": "2026-10-10 02:49 CDT",
+  "updated": "2026-10-10 08:59 CDT",
   "generator_sha256": "b89648983ea204ac569c01e4f5bad140c059ca56f8761e9e7cbfb599a6630faf",
   "data": {
     "revisions": {
-      "champions-return-to-arms-re": "2f937fca823488bc97b9680fde9d957c3fa9907a",
-      "champions-return-to-arms": "23e2246c457a2e4b6f57e52cefa337caeae0f7f3",
+      "champions-return-to-arms-re": "45668f7b7720dd722b0f8e8894af30953bc24a25",
+      "champions-return-to-arms": "adb1e7c3a9b1c41e86aed3f9f73cfef95c088c36",
       "champions-of-norrath": "ee9fcd3adc6f083a1da985f578c3234f9ad49c40",
-      "open-champions-godot": "2e2a7ae48c5599ac74be3c139f4dbe370ed55958"
+      "open-champions-godot": "acc88ed0c85a7bcf826d53032f834589fe5d6ec6"
     },
     "research": {
       "area": "all",
       "total": 7732,
-      "named": 4949
+      "named": 5233
     },
     "areas": [
       {
@@ -22,7 +22,7 @@
       {
         "area": "creatures",
         "total": 320,
-        "named": 295
+        "named": 296
       },
       {
         "area": "netcode",
@@ -37,22 +37,22 @@
       {
         "area": "objects",
         "total": 219,
-        "named": 183
+        "named": 199
       },
       {
         "area": "engine",
         "total": 546,
-        "named": 296
+        "named": 353
       },
       {
         "area": "player",
         "total": 122,
-        "named": 109
+        "named": 110
       },
       {
         "area": "ui",
         "total": 222,
-        "named": 187
+        "named": 189
       },
       {
         "area": "gameplay",
@@ -62,17 +62,17 @@
       {
         "area": "audio-save",
         "total": 293,
-        "named": 175
+        "named": 185
       },
       {
         "area": "monsters",
         "total": 885,
-        "named": 736
+        "named": 882
       },
       {
         "area": "skills",
         "total": 982,
-        "named": 865
+        "named": 902
       },
       {
         "area": "mainloop",
@@ -82,7 +82,7 @@
       {
         "area": "netlib",
         "total": 2066,
-        "named": 385
+        "named": 399
       },
       {
         "area": "runtime",
@@ -92,11 +92,11 @@
     ],
     "rta": {
       "scope": "recorded byte-exact C++ functions; no linked-game or runtime proof",
-      "functions_matched": 5,
+      "functions_matched": 8,
       "functions_total": 7732,
-      "bytes_matched": 40,
+      "bytes_matched": 64,
       "text_bytes_total": 3038272,
-      "byte_percent": 0.001316537821498536,
+      "byte_percent": 0.002106460514397658,
       "report_supplied": true
     },
     "milestones": {
@@ -110,7 +110,7 @@
         "done": 0,
         "total": 5,
         "url": "https://github.com/Open-Champions/champions-of-norrath/issues/1",
-        "updated_at": "2026-10-10T07:39:14Z"
+        "updated_at": "2026-10-10T07:57:25Z"
       }
     }
   }

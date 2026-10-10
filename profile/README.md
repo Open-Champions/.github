@@ -17,20 +17,20 @@ using each player's original game data. The goal is native play **without a PS2 
 [![Progress refresh](https://github.com/Open-Champions/.github/actions/workflows/progress.yml/badge.svg)](https://github.com/Open-Champions/.github/actions/workflows/progress.yml)
 
 Automatically checked every 15 minutes; GitHub scheduling and image caching can delay display.
-Last published data update: **2026-10-10 02:49 CDT**. [How these bars work](https://github.com/Open-Champions/.github/blob/main/PROGRESS.md).
+Last published data update: **2026-10-10 08:59 CDT**. [How these bars work](https://github.com/Open-Champions/.github/blob/main/PROGRESS.md).
 
-[![rta progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/rta-579923a6e33eb08a.svg)](https://github.com/Open-Champions/champions-return-to-arms/blob/23e2246c457a2e4b6f57e52cefa337caeae0f7f3/targets/SLUS-20973/verification.json)
+[![rta progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/rta-6198e899907ed27a.svg)](https://github.com/Open-Champions/champions-return-to-arms/blob/adb1e7c3a9b1c41e86aed3f9f73cfef95c088c36/targets/SLUS-20973/verification.json)
 
 [![norrath progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/norrath-c5116c78228c08ae.svg)](https://github.com/Open-Champions/champions-of-norrath/issues/1)
 
 [![native progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/native-27467079eb7e8282.svg)](https://github.com/Open-Champions/open-champions-godot/issues/2)
 
-[![research progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-cb508220a8bdcee7.svg)](https://github.com/Open-Champions/champions-return-to-arms-re/blob/2f937fca823488bc97b9680fde9d957c3fa9907a/docs/STATUS.md)
+[![research progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-d2d2317ebb662047.svg)](https://github.com/Open-Champions/champions-return-to-arms-re/blob/45668f7b7720dd722b0f8e8894af30953bc24a25/docs/STATUS.md)
 
 <details>
 <summary>Research progress by subsystem</summary>
 
-![Research areas](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-areas-93e50a0071599ceb.svg)
+![Research areas](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-areas-d70c00e276c749b2.svg)
 
 </details>
 
