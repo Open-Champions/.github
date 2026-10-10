@@ -4,11 +4,12 @@
 </p>
 
 <h1 align="center">Open Champions</h1>
-<p align="center"><strong>Preserve both games. Understand their engines. Build native play.</strong></p>
+<p align="center"><strong>Both Champions games. Native Mac &amp; Windows PC play.</strong></p>
 
 An independent community project for **Champions of Norrath** and **Champions: Return to Arms**.
 We reconstruct source from evidence, investigate online bugs, and develop a shared Godot client
-for native Mac and Windows play using each player's original game data.
+targeting **MacBooks and other Macs (macOS) and Windows PCs** for **both games**,
+using each player's original game data. The goal is native play **without a PS2 emulator**.
 
 <!-- dashboard:start -->
 ### Project progress
@@ -16,13 +17,13 @@ for native Mac and Windows play using each player's original game data.
 [![Progress refresh](https://github.com/Open-Champions/.github/actions/workflows/progress.yml/badge.svg)](https://github.com/Open-Champions/.github/actions/workflows/progress.yml)
 
 Automatically checked every 15 minutes; GitHub scheduling and image caching can delay display.
-Last published data update: **2026-10-10 02:44 CDT**. [How these bars work](https://github.com/Open-Champions/.github/blob/main/PROGRESS.md).
+Last published data update: **2026-10-10 02:49 CDT**. [How these bars work](https://github.com/Open-Champions/.github/blob/main/PROGRESS.md).
 
 [![rta progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/rta-579923a6e33eb08a.svg)](https://github.com/Open-Champions/champions-return-to-arms/blob/23e2246c457a2e4b6f57e52cefa337caeae0f7f3/targets/SLUS-20973/verification.json)
 
 [![norrath progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/norrath-c5116c78228c08ae.svg)](https://github.com/Open-Champions/champions-of-norrath/issues/1)
 
-[![native progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/native-ce047bf14fcdc2f7.svg)](https://github.com/Open-Champions/open-champions-godot/issues/2)
+[![native progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/native-27467079eb7e8282.svg)](https://github.com/Open-Champions/open-champions-godot/issues/2)
 
 [![research progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-7a57100dee4bdfa5.svg)](https://github.com/Open-Champions/champions-return-to-arms-re/blob/7bb716d6fa471e2405d37153f3d60ad0b2e4e1a8/docs/STATUS.md)
 
@@ -33,7 +34,7 @@ Last published data update: **2026-10-10 02:44 CDT**. [How these bars work](http
 
 </details>
 
-**Our goal: both Champions games running natively on Mac and Windows. Each bar tracks its own development measure.**
+**Our goal: both Champions games running natively on Mac/macOS and Windows PCs, without a PS2 emulator. Each bar tracks its own development measure.**
 <!-- dashboard:end -->
 
 ### Our repositories
@@ -42,7 +43,7 @@ Last published data update: **2026-10-10 02:44 CDT**. [How these bars work](http
 |---|---|---|
 | [champions-of-norrath](https://github.com/Open-Champions/champions-of-norrath) | Norrath's PS2 source reconstruction | Baseline intake and research setup |
 | [champions-return-to-arms](https://github.com/Open-Champions/champions-return-to-arms) | Return to Arms' PS2 source reconstruction | Exact-function verifier and recorded byte-matching progress |
-| [open-champions-godot](https://github.com/Open-Champions/open-champions-godot) | Shared native client for both games | Native Godot archive browser and C++ inspector; asset decoding and gameplay ahead |
+| [open-champions-godot](https://github.com/Open-Champions/open-champions-godot) | Godot client for both games on Mac/macOS & Windows PC | Native Godot archive browser and C++ inspector; asset decoding and gameplay ahead |
 | [champions-return-to-arms-re](https://github.com/Open-Champions/champions-return-to-arms-re) | Existing research, symbols, file formats and online-bug evidence | Active subsystem and network research |
 
 Each piece has one active home. The source repositories preserve the original PS2 targets;

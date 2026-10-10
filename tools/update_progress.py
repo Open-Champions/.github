@@ -116,7 +116,7 @@ def render(data, root=ROOT):
     cards = {
         'rta': card('Return to Arms · PS2 source rebuild', 'Verified matching code bytes', rta['bytes_matched'], rta['text_bytes_total'], f'{rta["functions_matched"]:,} / {rta["functions_total"]:,} complete functions rebuilt and verified against the original PS2 code.', digits=4),
         'research': card('Return to Arms · research coverage', 'Functions with names', research['named'], research['total'], 'Tracks function identification across the original game engine.', '#79c6b6'),
-        'native': card('Native Godot client · both games', 'Delivered roadmap milestones', native['done'], native['total'], 'Building native Mac and Windows play for both Champions games. Milestones vary in size.'),
+        'native': card('Godot client · Mac/macOS & Windows PC', 'Delivered roadmap milestones', native['done'], native['total'], 'Both Champions games. Target: native play without a PS2 emulator. Milestones vary in size.'),
         'norrath': card('Champions of Norrath · baseline setup', 'Verified setup milestones', norrath['done'], norrath['total'], 'Establishing the game-specific foundation for Norrath source reconstruction.', '#a6b9d3'),
     }
     cards['research-areas'] = area_svg(data['areas'])
@@ -149,7 +149,7 @@ Last published data update: **{now}**. [How these bars work](https://github.com/
 
 </details>
 
-**Our goal: both Champions games running natively on Mac and Windows. Each bar tracks its own development measure.**
+**Our goal: both Champions games running natively on Mac/macOS and Windows PCs, without a PS2 emulator. Each bar tracks its own development measure.**
 {END}'''
     readme = root / 'profile/README.md'
     text = readme.read_text()
