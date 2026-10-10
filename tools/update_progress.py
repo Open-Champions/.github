@@ -119,12 +119,17 @@ def render(data, root=ROOT):
         'native': card('Native Godot client · both games', 'Delivered roadmap milestones', native['done'], native['total'], 'Building native Mac and Windows play for both Champions games. Milestones vary in size.'),
         'norrath': card('Champions of Norrath · baseline setup', 'Verified setup milestones', norrath['done'], norrath['total'], 'Establishing the game-specific foundation for Norrath source reconstruction.', '#a6b9d3'),
     }
+    cards['research-areas'] = area_svg(data['areas'])
+    filenames = {}
     for name, svg in cards.items():
-        (folder / f'{name}.svg').write_text(svg, encoding='utf-8')
-    (folder / 'research-areas.svg').write_text(area_svg(data['areas']), encoding='utf-8')
+        filenames[name] = f'{name}-{sha256(svg.encode()).hexdigest()[:16]}.svg'
+        (folder / filenames[name]).write_text(svg, encoding='utf-8')
+        # Content-addressed image paths prevent cached captions surviving an update.
+        for previous in folder.glob(f'{name}*.svg'):
+            if re.fullmatch(re.escape(name) + r'(?:-[0-9a-f]{16})?\.svg', previous.name) and previous.name != filenames[name]:
+                previous.unlink()
     snapshot.write_text(json.dumps({'updated': now, 'generator_sha256': generator_hash, 'data': data}, indent=2) + '\n', encoding='utf-8')
     base = f'https://raw.githubusercontent.com/{ORG}/.github/main/profile/progress'
-    image_version = sha256((generator_hash + json.dumps(data, sort_keys=True)).encode()).hexdigest()[:16]
     links = {'rta': f'https://github.com/{ORG}/{REPOS[1]}/blob/{data["revisions"][REPOS[1]]}/targets/SLUS-20973/verification.json', 'research': f'https://github.com/{ORG}/{REPOS[0]}/blob/{data["revisions"][REPOS[0]]}/docs/STATUS.md', 'native': native['url'], 'norrath': norrath['url']}
     block = f'''{START}
 ### Project progress
@@ -136,11 +141,11 @@ Last published data update: **{now}**. [How these bars work](https://github.com/
 
 '''
     for name in ('rta', 'norrath', 'native', 'research'):
-        block += f'[![{name} progress]({base}/{name}.svg?v={image_version})]({links[name]})\n\n'
+        block += f'[![{name} progress]({base}/{filenames[name]})]({links[name]})\n\n'
     block += f'''<details>
 <summary>Research progress by subsystem</summary>
 
-![Research areas]({base}/research-areas.svg?v={image_version})
+![Research areas]({base}/{filenames['research-areas']})
 
 </details>
 

@@ -16,20 +16,20 @@ for native Mac and Windows play using each player's original game data.
 [![Progress refresh](https://github.com/Open-Champions/.github/actions/workflows/progress.yml/badge.svg)](https://github.com/Open-Champions/.github/actions/workflows/progress.yml)
 
 Automatically checked every 15 minutes; GitHub scheduling and image caching can delay display.
-Last published data update: **2026-10-10 02:43 CDT**. [How these bars work](https://github.com/Open-Champions/.github/blob/main/PROGRESS.md).
+Last published data update: **2026-10-10 02:44 CDT**. [How these bars work](https://github.com/Open-Champions/.github/blob/main/PROGRESS.md).
 
-[![rta progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/rta.svg?v=e11ee8ddedbf5f9f)](https://github.com/Open-Champions/champions-return-to-arms/blob/23e2246c457a2e4b6f57e52cefa337caeae0f7f3/targets/SLUS-20973/verification.json)
+[![rta progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/rta-579923a6e33eb08a.svg)](https://github.com/Open-Champions/champions-return-to-arms/blob/23e2246c457a2e4b6f57e52cefa337caeae0f7f3/targets/SLUS-20973/verification.json)
 
-[![norrath progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/norrath.svg?v=e11ee8ddedbf5f9f)](https://github.com/Open-Champions/champions-of-norrath/issues/1)
+[![norrath progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/norrath-c5116c78228c08ae.svg)](https://github.com/Open-Champions/champions-of-norrath/issues/1)
 
-[![native progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/native.svg?v=e11ee8ddedbf5f9f)](https://github.com/Open-Champions/open-champions-godot/issues/2)
+[![native progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/native-ce047bf14fcdc2f7.svg)](https://github.com/Open-Champions/open-champions-godot/issues/2)
 
-[![research progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research.svg?v=e11ee8ddedbf5f9f)](https://github.com/Open-Champions/champions-return-to-arms-re/blob/7bb716d6fa471e2405d37153f3d60ad0b2e4e1a8/docs/STATUS.md)
+[![research progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-7a57100dee4bdfa5.svg)](https://github.com/Open-Champions/champions-return-to-arms-re/blob/7bb716d6fa471e2405d37153f3d60ad0b2e4e1a8/docs/STATUS.md)
 
 <details>
 <summary>Research progress by subsystem</summary>
 
-![Research areas](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-areas.svg?v=e11ee8ddedbf5f9f)
+![Research areas](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-areas-5239fb328f25f21a.svg)
 
 </details>
 
