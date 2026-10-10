@@ -3,15 +3,15 @@
   "generator_sha256": "b89648983ea204ac569c01e4f5bad140c059ca56f8761e9e7cbfb599a6630faf",
   "data": {
     "revisions": {
-      "champions-return-to-arms-re": "7bb716d6fa471e2405d37153f3d60ad0b2e4e1a8",
+      "champions-return-to-arms-re": "2f937fca823488bc97b9680fde9d957c3fa9907a",
       "champions-return-to-arms": "23e2246c457a2e4b6f57e52cefa337caeae0f7f3",
       "champions-of-norrath": "ee9fcd3adc6f083a1da985f578c3234f9ad49c40",
-      "open-champions-godot": "2cc00a431c16b54970301defeca5e2e7a51a7257"
+      "open-champions-godot": "2e2a7ae48c5599ac74be3c139f4dbe370ed55958"
     },
     "research": {
       "area": "all",
       "total": 7732,
-      "named": 4925
+      "named": 4949
     },
     "areas": [
       {
@@ -42,7 +42,7 @@
       {
         "area": "engine",
         "total": 546,
-        "named": 272
+        "named": 296
       },
       {
         "area": "player",

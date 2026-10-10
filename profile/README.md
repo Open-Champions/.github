@@ -25,12 +25,12 @@ Last published data update: **2026-10-10 02:49 CDT**. [How these bars work](http
 
 [![native progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/native-27467079eb7e8282.svg)](https://github.com/Open-Champions/open-champions-godot/issues/2)
 
-[![research progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-7a57100dee4bdfa5.svg)](https://github.com/Open-Champions/champions-return-to-arms-re/blob/7bb716d6fa471e2405d37153f3d60ad0b2e4e1a8/docs/STATUS.md)
+[![research progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-cb508220a8bdcee7.svg)](https://github.com/Open-Champions/champions-return-to-arms-re/blob/2f937fca823488bc97b9680fde9d957c3fa9907a/docs/STATUS.md)
 
 <details>
 <summary>Research progress by subsystem</summary>
 
-![Research areas](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-areas-5239fb328f25f21a.svg)
+![Research areas](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-areas-93e50a0071599ceb.svg)
 
 </details>
 
