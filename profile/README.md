@@ -17,7 +17,7 @@ using each player's original game data. The goal is native play **without a PS2 
 [![Progress refresh](https://github.com/Open-Champions/.github/actions/workflows/progress.yml/badge.svg)](https://github.com/Open-Champions/.github/actions/workflows/progress.yml)
 
 Scheduled to refresh every 15 minutes; GitHub can delay runs and image updates.
-Last published data update: **2026-10-18 01:34 CDT**. [How these bars work](https://github.com/Open-Champions/.github/blob/main/PROGRESS.md).
+Last published data update: **2026-10-19 19:45 CDT**. [How these bars work](https://github.com/Open-Champions/.github/blob/main/PROGRESS.md).
 
 [![rta progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/rta-6198e899907ed27a.svg)](https://github.com/Open-Champions/champions-return-to-arms/blob/adb1e7c3a9b1c41e86aed3f9f73cfef95c088c36/targets/SLUS-20973/verification.json)
 
@@ -27,7 +27,7 @@ Last published data update: **2026-10-18 01:34 CDT**. [How these bars work](http
 
 [![native progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/native-27467079eb7e8282.svg)](https://github.com/Open-Champions/open-champions-godot/issues/2)
 
-[![research progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-4ecd83ded3ca2069.svg)](https://github.com/Open-Champions/champions-return-to-arms-re/blob/69197a5a466bacf45b2864936cb6d99796d69fd2/docs/STATUS.md)
+[![research progress](https://raw.githubusercontent.com/Open-Champions/.github/main/profile/progress/research-4ecd83ded3ca2069.svg)](https://github.com/Open-Champions/champions-return-to-arms-re/blob/f68887e70eee00de1c23e9fb5ae9f14541635990/docs/STATUS.md)
 
 <details>
 <summary>Research progress by subsystem</summary>
