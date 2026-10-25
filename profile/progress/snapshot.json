@@ -1,17 +1,17 @@
 {
-  "updated": "2026-10-25 14:21 CDT",
+  "updated": "2026-10-25 16:58 CDT",
   "generator_sha256": "dec30ab73a51af64eaf9a65a120f2399841d22bd1fb7ef8e995dd374bfac3f20",
   "data": {
     "revisions": {
-      "champions-return-to-arms-re": "f8ab361f9f6975659b291f382a965170d58d531d",
+      "champions-return-to-arms-re": "008fef9365efcad1af51481200482f35886f097c",
       "champions-return-to-arms": "adb1e7c3a9b1c41e86aed3f9f73cfef95c088c36",
       "champions-of-norrath": "ee9fcd3adc6f083a1da985f578c3234f9ad49c40",
-      "open-champions-godot": "103aac54670b7f57669157df2750d1648f310434"
+      "open-champions-godot": "fb98ba00888d73f91224db41fb1da707bfc514cc"
     },
     "research": {
       "area": "all",
       "total": 7732,
-      "named": 5239
+      "named": 5300
     },
     "areas": [
       {
@@ -22,7 +22,7 @@
       {
         "area": "creatures",
         "total": 320,
-        "named": 296
+        "named": 298
       },
       {
         "area": "netcode",
@@ -37,12 +37,12 @@
       {
         "area": "objects",
         "total": 219,
-        "named": 199
+        "named": 200
       },
       {
         "area": "engine",
         "total": 546,
-        "named": 356
+        "named": 395
       },
       {
         "area": "player",
@@ -57,12 +57,12 @@
       {
         "area": "gameplay",
         "total": 276,
-        "named": 240
+        "named": 241
       },
       {
         "area": "audio-save",
         "total": 293,
-        "named": 185
+        "named": 186
       },
       {
         "area": "monsters",
@@ -72,7 +72,7 @@
       {
         "area": "skills",
         "total": 982,
-        "named": 902
+        "named": 918
       },
       {
         "area": "mainloop",
@@ -82,7 +82,7 @@
       {
         "area": "netlib",
         "total": 2066,
-        "named": 399
+        "named": 400
       },
       {
         "area": "runtime",
@@ -100,16 +100,9 @@
       "report_supplied": true
     },
     "norrath_source": {
-      "available": true,
-      "label": "Draft PR #2 / unmerged",
-      "revision": "2d946bb14e417877af3b3b955337bb75925a21bb",
-      "url": "https://github.com/Open-Champions/champions-of-norrath/pull/2",
-      "functions_matched": 11,
-      "functions_total": 5390,
-      "bytes_matched": 160,
-      "text_bytes_total": 2209032,
-      "data_objects_matched": 4,
-      "data_bytes_matched": 13
+      "available": false,
+      "label": "PR #2 closed without merging",
+      "url": "https://github.com/Open-Champions/champions-of-norrath/pull/2"
     },
     "milestones": {
       "native": {
